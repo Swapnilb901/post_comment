@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row justify-content-center mt-5">
+    <% @posts.each do |post| %>
+      <div class="col-12 mt-5">
+        <div class="card shadow">
+          <div class="card-body p-0">
+            <div class="row">
+              <div class="col-3">
+                <% if post.image.attached? %>
+                  <p class="card-image my-auto"><%= image_tag (post.image), class: "rounded-left" %></p>
+                <% end %>
+              </div>
+              <div class="col-9 py-3">
+                <h3 class="card-title text-primary"><%= link_to post.title, post_path(post) %></h3>
+                <p class="card-text"><%= truncate(post.body, length: 60) %>.</p>
+                <div class="d-flex">
+                  <% if current_user.id == post.user_id%>
+                    <%= link_to 'Edit', edit_post_path(post), class: 'btn btn-primary mr-4' %>
+                  <% end %>
+                  <% if post.check_like?(current_user) %>
+                    <%= button_to "unlike", like_path(post), method: "put", class: "float-right"%>
+                  <% else %>
+                    <%= button_to "like", like_path(post), method: "put", class:"float-right"%>
+                  <% end%>
+                  <p class="ml-2"><%= post.likes.count %></p>
+                </div>
+              </div>
+              
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

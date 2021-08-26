@@ -1,0 +1,26 @@
+<%= form_with(model: post, local: true) do |form| %>
+  <% if post.errors.any? %>
+    <div id="error_explanation">
+      <h4 class="text-danger"><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h4>
+      <ul class="list-group">
+        <% post.errors.full_messages.each do |message| %>
+          <li class="list-group-item list-group-item-danger"><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="pt-4">
+    <div class="field">
+      <%= form.label :title, class:"mb-0" %><br>
+      <%= form.text_field :title, class: "fadeIn second", placeholder: "Title"%>
+    </div>
+    <div class="field">
+      <%= form.label :body, class:"mb-0" %><br>
+      <%= form.text_area :body, class: "fadeIn second body-text-field", placeholder: "Body"%>
+    </div>
+    <div class="field">
+      <%= form.file_field :image%>
+    </div>
+    <%= form.submit "Save Post", class: "fadeIn fourth mt-4 px-0", value: "Save Post" %>
+  </div>
+<% end %>

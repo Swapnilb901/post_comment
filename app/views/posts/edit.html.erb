@@ -1,0 +1,11 @@
+<div class="wrapper fadeInDown">
+  <div id="formContent" class="text-left">
+    <h4 class="modal-title text-center">Edit Post</h4>
+    <%= render 'form', post: @post %>
+    <div class="mt-5 text-center">
+      <%= link_to 'Show', @post, class: 'btn btn-info mr-5 px-4' %>
+      <%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger mr-5 px-4' %>
+      <%= link_to 'Back', posts_path, class: 'btn btn-secondary px-4' %>
+    </div>
+  </div>
+</div>

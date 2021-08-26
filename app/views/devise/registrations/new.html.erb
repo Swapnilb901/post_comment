@@ -1,0 +1,33 @@
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%= render "devise/shared/error_messages", resource: resource %>
+  <div class="wrapper fadeInDown">
+    <div id="formContent" class="text-left">
+      <!-- Sign Up Form -->
+      <form>
+        <h4 class="modal-title text-center">Sign Up Your Account</h4>
+        <div class="pt-4">
+          <div class="field">
+            <%= f.label :email, class:"mb-0" %><br>
+            <%= f.text_field :email, class: "fadeIn second", id: "login", placeholder: "Email"%>
+          </div>
+          <div class="field">
+            <%= f.label :password, class:"mb-0" %>
+            <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %><br />
+            <%= f.password_field :password, autocomplete: "new-password", class: "fadeIn third", placeholder: "Password" %>
+          </div>
+          <div class="field">
+            <%= f.label :password_confirmation, class:"mb-0" %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "fadeIn third", placeholder: "New Password" %>
+          </div>
+          <%= f.submit "Sign up", class: "fadeIn fourth mt-4", value: "Sign up" %>
+        </div>
+      </form>
+      <!-- Remind Passowrd -->
+      <div class="text-center small pt-4">Already have an account?
+        <%= link_to "Sign in", new_user_session_path %>
+      </div>
+    </div>
+  </div>
+<% end %>

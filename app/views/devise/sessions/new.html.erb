@@ -1,0 +1,23 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="wrapper fadeInDown">
+    <div id="formContent">
+      <!-- Login Form -->
+      <form>
+        <h4 class="modal-title">Login to Your Account</h4>
+        <div class="pt-4">
+          <%= f.text_field :email, class: "fadeIn second", id: "login", placeholder: "Email"%>
+          <%= f.password_field :password, id: "password", class: "fadeIn third", placeholder: "Password"%>
+          <%= f.submit "Log in", class: "fadeIn fourth mt-4", value: "Log In" %>
+        </div>
+      </form>
+      <!-- Remind Passowrd -->
+      <div class="text-center small pt-4">Don't have an account?
+        <%= link_to "Sign up", new_user_registration_path, class: "" %>
+      </div>
+    </div>
+  </div>
+<% end %>

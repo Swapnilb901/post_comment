@@ -1,0 +1,9 @@
+<div class="wrapper fadeInDown">
+  <div id="formContent" class="text-left">
+    <h4 class="modal-title text-center">New Post</h4>
+    <%= render 'form', post: @post %>
+    <%= link_to 'Back', posts_path, class: "fadeIn fourth mt-4 btn-primary back-btn px-0", value: "Save Post" %>
+    <div class="pt-4">
+    </div>
+  </div>
+</div>
